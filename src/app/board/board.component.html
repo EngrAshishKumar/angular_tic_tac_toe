@@ -1,0 +1,18 @@
+<h1>Current Player: {{ player }}</h1>
+<button nbButton outline status="danger" (click)="newGame()">Reset Board</button>
+
+<h2 *ngIf="winner">
+    Player {{ winner }} won the game.
+</h2>
+<h2 *ngIf="moves==9 && !winner">
+    This game is tied.
+</h2>
+
+<main>
+    <app-square  
+        *ngFor="let sq of squares; let idx = index"
+        [value] = "sq"
+        (click) = "makeMove(idx)" >
+    </app-square>
+</main>
+
